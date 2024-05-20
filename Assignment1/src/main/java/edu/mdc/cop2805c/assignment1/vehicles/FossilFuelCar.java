@@ -1,6 +1,7 @@
-package edu.mdc.cop2805c.assignment1;
+package edu.mdc.cop2805c.assignment1.vehicles;
 
 import edu.mdc.cop2805c.assignment1.base.*;
+import edu.mdc.cop2805c.assignment1.interfaces.FossilFuelVehicle;
 
 public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
     int weightKg;

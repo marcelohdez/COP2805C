@@ -1,4 +1,4 @@
-package edu.mdc.cop2805c.assignment1.base;
+package edu.mdc.cop2805c.assignment1.interfaces;
 
 public interface FossilFuelVehicle {
     double estimateFuelEfficiency();
