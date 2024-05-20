@@ -1,4 +1,4 @@
-package me.marcelohdez.vehicle_mgmt.base;
+package edu.mdc.cop2805c.assignment1.base;
 
 public enum VehicleSubType {
     ELECTRIC,
