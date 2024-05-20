@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'me.marcelohdez'
+group = 'edu.mdc.cop2805c'
 version = '1.0'
 
 compileJava {
@@ -12,6 +12,6 @@ compileJava {
 
 jar {
     manifest {
-        attributes "Main-Class": "${group}.vehicle_mgmt.Main"
+        attributes "Main-Class": "edu.mdc.cop2805c.assignment1.Main"
     }
 }
