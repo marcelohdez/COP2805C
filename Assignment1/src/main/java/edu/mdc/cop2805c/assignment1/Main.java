@@ -8,8 +8,10 @@ public class Main {
     public static void main(String[] args) {
         Vehicle car = new FossilFuelCar("234SHDSF", "Toyota", "Corolla", 2021, 1360, 2, TransmissionType.AUTOMATIC, FuelType.GASOLINE);
         Vehicle truck = new FossilFuelTruck("POOKIE42", "Ford", "F150", 2023, 2260, 3.5, FuelType.GASOLINE);
+        Vehicle mc = new FossilFuelMotorcycle("19BEAR99", "Something", "Else", 2024, 270, 400, 12);
 
         System.out.println(car.getDescription() + "\n");
-        System.out.println(truck.getDescription());
+        System.out.println(truck.getDescription() + "\n");
+        System.out.println(mc.getDescription());
     }
 }
