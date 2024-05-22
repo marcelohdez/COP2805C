@@ -11,7 +11,8 @@ import edu.mdc.cop2805c.assignment1.vehicles.FossilFuelTruck;
 public class Main {
     public static void main(String[] args) {
         Vehicle[] vehicles = {
-                new FossilFuelCar("234SHDSF", "Toyota", "Corolla", 2021, 1360, 2, TransmissionType.AUTOMATIC, FuelType.GASOLINE),
+                new FossilFuelCar("234SHDSF", "Toyota", "Corolla", 2021, 1360, 2, TransmissionType.AUTOMATIC,
+                        FuelType.GASOLINE),
                 new FossilFuelTruck("POOKIE42", "Ford", "F150", 2023, 2260, 3.5, FuelType.GASOLINE),
                 new FossilFuelMotorcycle("19BEAR99", "Something", "Else", 2024, 270, 400, 12),
                 new ElectricCar("FR33P4L", "Lucid", "Air", 2024, 12)

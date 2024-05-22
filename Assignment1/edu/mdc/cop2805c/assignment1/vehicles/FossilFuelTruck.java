@@ -15,8 +15,7 @@ public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
             int year,
             int weightRatingTon,
             double engineDisplacementL,
-            FuelType fuelType
-    ) {
+            FuelType fuelType) {
         this.vin = VIN;
         this.make = make;
         this.model = model;
@@ -46,8 +45,7 @@ public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
                 vin,
                 grossVehicleWeightRatingTon,
                 engineDisplacementL,
-                fuelType
-        );
+                fuelType);
     }
 
     /// Estimate fuel efficiency in MPG

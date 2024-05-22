@@ -3,36 +3,35 @@ package edu.mdc.cop2805c.assignment1.vehicles;
 import edu.mdc.cop2805c.assignment1.base.*;
 import edu.mdc.cop2805c.assignment1.interfaces.FossilFuelVehicle;
 
-public class FossilFuelMotorcycle extends Vehicle implements FossilFuelVehicle {
-    // No Diesel Motorcycles...
-    final FuelType FUEL_TYPE = FuelType.GASOLINE;
-
+public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
     int weightKg;
-    double engineDisplacementCC;
-    double frontalAreaSqM;
+    double engineDisplacementL;
+    TransmissionType transmissionType;
+    FuelType fuelType;
 
-    public FossilFuelMotorcycle(
+    public FossilFuelCar(
             String VIN,
             String make,
             String model,
             int year,
             int weightKg,
-            double engineDisplacementCC,
-            double frontalAreaSqM
-    ) {
+            double engineDisplacementL,
+            TransmissionType transmissionType,
+            FuelType fuelType) {
         this.vin = VIN;
         this.make = make;
         this.model = model;
         this.year = year;
 
         this.weightKg = weightKg;
-        this.engineDisplacementCC = engineDisplacementCC;
-        this.frontalAreaSqM = frontalAreaSqM;
+        this.engineDisplacementL = engineDisplacementL;
+        this.transmissionType = transmissionType;
+        this.fuelType = fuelType;
     }
 
     @Override
     public String getVehicleType() {
-        return VehicleType.MOTORCYCLE.toString();
+        return VehicleType.CAR.toString();
     }
 
     @Override
@@ -43,30 +42,32 @@ public class FossilFuelMotorcycle extends Vehicle implements FossilFuelVehicle {
     @Override
     public String getDescription() {
         return String.format(
-                "%s %s\n%s %s %d\nVIN: %s\nWeight (kg): %d\nEngine Displacement: %f CC\nFrontal Area: %f M²",
+                "%s %s\n%s %s %d\nVIN: %s\nWeight (kg): %d\nEngine Displacement: %f L\nTransmission: %s\nFuel Type: %s",
                 getVehicleSubType(), getVehicleType(),
                 make, model, year,
                 vin,
                 weightKg,
-                engineDisplacementCC,
-                frontalAreaSqM
-        );
+                engineDisplacementL,
+                transmissionType,
+                fuelType);
     }
 
     /// Estimate fuel efficiency in MPG
     @Override
     public double estimateFuelEfficiency() {
-        return (46.64 - (0.0049 * weightKg) - (0.008 * engineDisplacementCC)) / (3.5 * frontalAreaSqM);
+        return (0.5 * Math.pow(engineDisplacementL, 2.5)) /
+                (Math.pow(weightKg, 0.6) * transmissionType.getMultiplier())
+                * 1000;
     }
 
     /// Estimate CO2 emissions in grams/mile
     @Override
     public double estimateCO2Emissions() {
-        return estimateFuelEfficiency() * FUEL_TYPE.getCO2EmissionFactor(VehicleType.MOTORCYCLE);
+        return estimateFuelEfficiency() * fuelType.getCO2EmissionFactor(VehicleType.CAR);
     }
 
     @Override
     public double estimateNOxEmissions() {
-        return estimateFuelEfficiency() * FUEL_TYPE.getNOxEmissionFactor(VehicleType.MOTORCYCLE);
+        return estimateFuelEfficiency() * fuelType.getNOxEmissionFactor(VehicleType.CAR);
     }
 }

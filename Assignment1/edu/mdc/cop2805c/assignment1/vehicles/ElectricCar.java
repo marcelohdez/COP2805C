@@ -13,8 +13,7 @@ public class ElectricCar extends Vehicle implements ElectricVehicle {
             String make,
             String model,
             int year,
-            double electricityConsumedPerMilekWh
-    ) {
+            double electricityConsumedPerMilekWh) {
         this.vin = VIN;
         this.make = make;
         this.model = model;
@@ -45,7 +44,6 @@ public class ElectricCar extends Vehicle implements ElectricVehicle {
                 getVehicleSubType(), getVehicleType(),
                 make, model, year,
                 vin,
-                electricityConsumedPerMilekWh
-        );
+                electricityConsumedPerMilekWh);
     }
 }

@@ -2,26 +2,28 @@
 
 My mono-repo for my COP2805C (Java 2) college class.
 
-Created using Intellij and Gradle.
-
 ## Running
 
-In your IDE you may run the edu.mdc.cop2805c.assignmentN.Main file directly, or
-from the assignment root run the Gradle `build` task either through your IDE or
-through the command e.g.:
+In your IDE you may run the any assignment's Main file directly. If using \*vim
+or are just in a terminal follow the steps below.
+
+### Java 8 - 21
+
+Run the Makefile at this repo's root to build and run a specific assignment for you:
 
 ```bash
-./gradlew build --no-daemon
+make
 ```
 
-_The `--no-daemon` option can be omitted if you would like gradle to stick
-around and make future builds faster._
+### Java 22+
 
-Then the resulting jar will be in `build/libs/` which can be run like e.g.:
+Java 22 can **_finally_** run multi-file projects by itself, so you may run e.g.:
 
 ```bash
-java -jar build/libs/Assignment1_Vehicle_Management-1.0.jar
+java Assignment1/edu/mdc/cop2805c/assignment1/Main.java
 ```
+
+And it will run the project correctly.
 
 ## License
 

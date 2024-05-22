@@ -7,6 +7,8 @@ public abstract class Vehicle {
     protected int year;
 
     public abstract String getVehicleType();
+
     public abstract String getVehicleSubType();
+
     public abstract String getDescription();
 }
