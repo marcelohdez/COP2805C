@@ -4,6 +4,8 @@ My mono-repo for my COP2805C (Java 2) college class.
 
 ## Running
 
+_You should have Java 8+ installed._
+
 In your IDE you may run the any assignment's Main file directly. Otherwise
 follow the steps below
 
