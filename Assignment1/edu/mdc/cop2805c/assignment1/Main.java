@@ -32,7 +32,6 @@ public class Main {
 
         try (FileReader fr = new FileReader(FILE_NAME)) {
             while (fr.ready()) {
-                // sb.append((char) fr.read());
                 System.out.print((char) fr.read());
             }
         } catch (IOException e) {

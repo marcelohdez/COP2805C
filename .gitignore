@@ -27,7 +27,7 @@ build/
 out/
 classes/
 
-# ignore intellij idea stuffs
+# ignore intellij/eclipse idea stuffs
 .idea/
 *.iml
 *.ipr
