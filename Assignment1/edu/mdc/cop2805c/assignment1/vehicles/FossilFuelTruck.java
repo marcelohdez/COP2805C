@@ -28,24 +28,21 @@ public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
 
     @Override
     public String getVehicleType() {
-        return VehicleType.TRUCK.toString();
+        return VehicleType.Truck.toString();
     }
 
     @Override
     public String getVehicleSubType() {
-        return VehicleSubType.FOSSIL_FUEL.toString();
+        return VehicleSubType.Fossil_Fuel.toString();
     }
 
     @Override
     public String getDescription() {
         return String.format(
-                "%s %s\n%s %s %d\nVIN: %s\nWeight Rating (ton): %d\nEngine Displacement: %f\nFuel Type: %s",
-                getVehicleSubType(), getVehicleType(),
-                make, model, year,
-                vin,
-                grossVehicleWeightRatingTon,
-                engineDisplacementL,
-                fuelType);
+                "%s,%s,%s,%s,%s,%d,%d,%f,%s",
+                getVehicleType(),
+                getVehicleSubType(),
+                vin, make, model, year, grossVehicleWeightRatingTon, engineDisplacementL, fuelType);
     }
 
     /// Estimate fuel efficiency in MPG
@@ -57,11 +54,11 @@ public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
     /// Estimate CO2 emissions in grams/mile
     @Override
     public double estimateCO2Emissions() {
-        return estimateFuelEfficiency() * fuelType.getCO2EmissionFactor(VehicleType.TRUCK);
+        return estimateFuelEfficiency() * fuelType.getCO2EmissionFactor(VehicleType.Truck);
     }
 
     @Override
     public double estimateNOxEmissions() {
-        return estimateFuelEfficiency() * fuelType.getNOxEmissionFactor(VehicleType.TRUCK);
+        return estimateFuelEfficiency() * fuelType.getNOxEmissionFactor(VehicleType.Truck);
     }
 }

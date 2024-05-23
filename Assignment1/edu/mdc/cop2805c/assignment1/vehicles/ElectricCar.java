@@ -29,21 +29,20 @@ public class ElectricCar extends Vehicle implements ElectricVehicle {
 
     @Override
     public String getVehicleType() {
-        return VehicleType.CAR.toString();
+        return VehicleType.Car.toString();
     }
 
     @Override
     public String getVehicleSubType() {
-        return VehicleSubType.ELECTRIC.toString();
+        return VehicleSubType.Electric.toString();
     }
 
     @Override
     public String getDescription() {
         return String.format(
-                "%s %s\n%s %s %d\nVIN: %s\nElectricity Consumed/Mile: %f kWh",
-                getVehicleSubType(), getVehicleType(),
-                make, model, year,
-                vin,
-                electricityConsumedPerMilekWh);
+                "%s,%s,%s,%s,%s,%d,%f",
+                getVehicleType(),
+                getVehicleSubType(),
+                vin, make, model, year, electricityConsumedPerMilekWh);
     }
 }

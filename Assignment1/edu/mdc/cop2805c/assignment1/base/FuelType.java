@@ -1,14 +1,14 @@
 package edu.mdc.cop2805c.assignment1.base;
 
 public enum FuelType {
-    GASOLINE,
-    DIESEL;
+    Gasoline,
+    Diesel;
 
     public int getTruckEfficiencyConstant() {
         switch (this) {
-            case GASOLINE:
+            case Gasoline:
                 return 10;
-            case DIESEL:
+            case Diesel:
                 return 14;
         }
         throw new IllegalArgumentException("Unknown FuelType used");
@@ -16,21 +16,21 @@ public enum FuelType {
 
     public int getCO2EmissionFactor(VehicleType vehicleType) {
         switch (this) {
-            case GASOLINE:
+            case Gasoline:
                 switch (vehicleType) {
-                    case CAR:
+                    case Car:
                         return 8887;
-                    case TRUCK:
+                    case Truck:
                         return 11100;
-                    case MOTORCYCLE:
+                    case Motorcycle:
                         return 4600;
                 }
                 break;
-            case DIESEL:
+            case Diesel:
                 switch (vehicleType) {
-                    case CAR:
+                    case Car:
                         return 8260;
-                    case TRUCK:
+                    case Truck:
                         return 10250;
                     // no diesel motorcycle
                 }
@@ -43,21 +43,21 @@ public enum FuelType {
 
     public double getNOxEmissionFactor(VehicleType vehicleType) {
         switch (this) {
-            case GASOLINE:
+            case Gasoline:
                 switch (vehicleType) {
-                    case CAR:
+                    case Car:
                         return 0.68;
-                    case TRUCK:
+                    case Truck:
                         return 2.10;
-                    case MOTORCYCLE:
+                    case Motorcycle:
                         return 3.20;
                 }
                 break;
-            case DIESEL:
+            case Diesel:
                 switch (vehicleType) {
-                    case CAR:
+                    case Car:
                         return 2.01;
-                    case TRUCK:
+                    case Truck:
                         return 4.60;
                     // no diesel motorcycle
                 }

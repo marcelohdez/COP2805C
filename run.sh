@@ -9,5 +9,5 @@ OUTDIR=out
 FILES=$(find Assignment"$1"/edu/mdc/cop2805c/assignment"$1" -name \*.java)
 
 mkdir -p "$OUTDIR"
-javac --release 8 -d "$OUTDIR" $FILES
+javac -Xlint:-options --release 8 -d "$OUTDIR" $FILES
 java -cp "$OUTDIR" edu.mdc.cop2805c.assignment"$1".Main

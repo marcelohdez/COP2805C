@@ -5,7 +5,7 @@ import edu.mdc.cop2805c.assignment1.interfaces.FossilFuelVehicle;
 
 public class FossilFuelMotorcycle extends Vehicle implements FossilFuelVehicle {
     // No Diesel Motorcycles...
-    final FuelType FUEL_TYPE = FuelType.GASOLINE;
+    final FuelType FUEL_TYPE = FuelType.Gasoline;
 
     int weightKg;
     double engineDisplacementCC;
@@ -31,24 +31,21 @@ public class FossilFuelMotorcycle extends Vehicle implements FossilFuelVehicle {
 
     @Override
     public String getVehicleType() {
-        return VehicleType.MOTORCYCLE.toString();
+        return VehicleType.Motorcycle.toString();
     }
 
     @Override
     public String getVehicleSubType() {
-        return VehicleSubType.FOSSIL_FUEL.toString();
+        return VehicleSubType.Fossil_Fuel.toString();
     }
 
     @Override
     public String getDescription() {
         return String.format(
-                "%s %s\n%s %s %d\nVIN: %s\nWeight (kg): %d\nEngine Displacement: %f CC\nFrontal Area: %f M²",
-                getVehicleSubType(), getVehicleType(),
-                make, model, year,
-                vin,
-                weightKg,
-                engineDisplacementCC,
-                frontalAreaSqM);
+                "%s,%s,%s,%s,%s,%d,%d,%f,%f",
+                getVehicleType(),
+                getVehicleSubType(),
+                vin, make, model, year, weightKg, engineDisplacementCC, frontalAreaSqM);
     }
 
     /// Estimate fuel efficiency in MPG
@@ -60,11 +57,11 @@ public class FossilFuelMotorcycle extends Vehicle implements FossilFuelVehicle {
     /// Estimate CO2 emissions in grams/mile
     @Override
     public double estimateCO2Emissions() {
-        return estimateFuelEfficiency() * FUEL_TYPE.getCO2EmissionFactor(VehicleType.MOTORCYCLE);
+        return estimateFuelEfficiency() * FUEL_TYPE.getCO2EmissionFactor(VehicleType.Motorcycle);
     }
 
     @Override
     public double estimateNOxEmissions() {
-        return estimateFuelEfficiency() * FUEL_TYPE.getNOxEmissionFactor(VehicleType.MOTORCYCLE);
+        return estimateFuelEfficiency() * FUEL_TYPE.getNOxEmissionFactor(VehicleType.Motorcycle);
     }
 }

@@ -1,14 +1,14 @@
 package edu.mdc.cop2805c.assignment1.base;
 
 public enum TransmissionType {
-    AUTOMATIC,
-    MANUAL;
+    Automatic,
+    Manual;
 
     public double getMultiplier() {
         switch (this) {
-            case AUTOMATIC:
+            case Automatic:
                 return 1;
-            case MANUAL:
+            case Manual:
                 return 0.8;
         }
         throw new IllegalArgumentException("Unknown TransmissionType used");
