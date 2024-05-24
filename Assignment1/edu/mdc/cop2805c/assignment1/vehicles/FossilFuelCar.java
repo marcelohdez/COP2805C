@@ -41,17 +41,13 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
 
     @Override
     public String getDescription() {
-        // return String.format(
-        // "%s,%s,%s,%s,%s,%d,%f",
-        // getVehicleType(),
-        // getVehicleSubType(),
-        // vin, make, model, year, electricityConsumedPerMilekWh);
-
         return String.format(
                 "%s,%s,%s,%s,%s,%d,%d,%f,%s,%s",
                 getVehicleType(),
                 getVehicleSubType(),
-                vin, make, model, year, weightKg, engineDisplacementL, transmissionType, fuelType);
+                vin, make, model, year, weightKg, engineDisplacementL,
+                fuelType.getOrdinal(),
+                transmissionType.getOrdinal());
     }
 
     /// Estimate fuel efficiency in MPG

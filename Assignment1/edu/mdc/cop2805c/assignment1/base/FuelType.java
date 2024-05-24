@@ -1,8 +1,29 @@
 package edu.mdc.cop2805c.assignment1.base;
 
 public enum FuelType {
-    Gasoline,
-    Diesel;
+    Gasoline(1),
+    Diesel(2);
+
+    private final int ordinal;
+
+    FuelType(int ordinal) {
+        this.ordinal = ordinal;
+    }
+
+    public static FuelType valueOf(int ordinal) {
+        switch (ordinal) {
+            case 1:
+                return Gasoline;
+            case 2:
+                return Diesel;
+        }
+
+        throw new IllegalArgumentException("Unknown ordinal");
+    }
+
+    public int getOrdinal() {
+        return ordinal;
+    }
 
     public int getTruckEfficiencyConstant() {
         switch (this) {

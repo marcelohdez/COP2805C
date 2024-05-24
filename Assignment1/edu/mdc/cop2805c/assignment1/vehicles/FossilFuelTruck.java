@@ -42,7 +42,8 @@ public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
                 "%s,%s,%s,%s,%s,%d,%d,%f,%s",
                 getVehicleType(),
                 getVehicleSubType(),
-                vin, make, model, year, grossVehicleWeightRatingTon, engineDisplacementL, fuelType);
+                vin, make, model, year, grossVehicleWeightRatingTon, engineDisplacementL,
+                fuelType.getOrdinal());
     }
 
     /// Estimate fuel efficiency in MPG

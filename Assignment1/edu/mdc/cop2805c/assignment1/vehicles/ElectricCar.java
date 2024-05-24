@@ -1,9 +1,7 @@
 package edu.mdc.cop2805c.assignment1.vehicles;
 
 import edu.mdc.cop2805c.assignment1.interfaces.ElectricVehicle;
-import edu.mdc.cop2805c.assignment1.base.Vehicle;
-import edu.mdc.cop2805c.assignment1.base.VehicleSubType;
-import edu.mdc.cop2805c.assignment1.base.VehicleType;
+import edu.mdc.cop2805c.assignment1.base.*;
 
 public class ElectricCar extends Vehicle implements ElectricVehicle {
     double electricityConsumedPerMilekWh;
