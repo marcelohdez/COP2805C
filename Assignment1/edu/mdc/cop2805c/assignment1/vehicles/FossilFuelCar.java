@@ -50,7 +50,7 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
                 transmissionType.getOrdinal());
     }
 
-    /// Estimate fuel efficiency in MPG
+    /** Estimate fuel efficiency in MPG */
     @Override
     public double estimateFuelEfficiency() {
         return (0.5 * Math.pow(engineDisplacementL, 2.5)) /
@@ -58,7 +58,7 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
                 * 1000;
     }
 
-    /// Estimate CO2 emissions in grams/mile
+    /** Estimate CO2 emissions in grams/mile */
     @Override
     public double estimateCO2Emissions() {
         return estimateFuelEfficiency() * fuelType.getCO2EmissionFactor(VehicleType.Car);

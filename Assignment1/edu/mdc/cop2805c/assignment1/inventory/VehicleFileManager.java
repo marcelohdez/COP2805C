@@ -34,7 +34,7 @@ public class VehicleFileManager {
     }
 
     public static List<Vehicle> loadVehiclesFromFile(String filename) {
-        List<Vehicle> vehicles = new ArrayList<Vehicle>();
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
 
         try (Scanner scn = new Scanner(new File(filename))) {
             while (scn.hasNextLine()) {
