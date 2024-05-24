@@ -22,9 +22,9 @@ import edu.mdc.cop2805c.assignment1.vehicles.FossilFuelMotorcycle;
 import edu.mdc.cop2805c.assignment1.vehicles.FossilFuelTruck;
 
 public class VehicleFileManager {
-    public static void saveVehiclesToFile(List<Vehicle> Vehicles, String filename) {
+    public static void saveVehiclesToFile(List<Vehicle> vehicles, String filename) {
         try (FileWriter fw = new FileWriter(filename)) {
-            for (Vehicle v : Vehicles) {
+            for (Vehicle v : vehicles) {
                 fw.write(v.getDescription() + "\n");
             }
         } catch (IOException e) {

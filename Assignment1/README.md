@@ -250,9 +250,9 @@ Create the following in the `edu.mdc.cop2805c.assignment1.inventory` package:
 1. Create a class called `VehicleFileManager` that handles file I/O operations
    for vehicles.
 2. Add the following **static** methods to the `VehicleFileManager` class:
-   - `void saveVehiclesToFile(List&lt;Vehicle> vehicles, String filename)` to
+   - `void saveVehiclesToFile(List<Vehicle> vehicles, String filename)` to
      save a list of vehicles to a file.
-   - `List&lt;Vehicle> loadVehiclesFromFile(String filename)` to load a list
+   - `List<Vehicle> loadVehiclesFromFile(String filename)` to load a list
      of vehicles from a file.
 3. The file format for saving and loading vehicles should be as follows:
    - Each line in the file represents a vehicle.
@@ -274,8 +274,8 @@ Create the following in the `edu.mdc.cop2805c.assignment1.inventory` package:
 2. Add the following methods to the `VehicleList` class:
    - `void addVehicle(Vehicle vehicle)` to add a vehicle to the list.
    - `void removeVehicle(Vehicle vehicle)` to remove a vehicle from the list.
-   - `List&lt;Vehicle> getAllVehicles()` to get a list of all vehicles.
-   - `List&lt;Vehicle> getVehiclesByType(String type)` to get a list of
+   - `List<Vehicle> getAllVehicles()` to get a list of all vehicles.
+   - `List<Vehicle> getVehiclesByType(String type)` to get a list of
      vehicles of a specific type (e.g., "Car", "Truck", "Motorcycle").
    - Two Constructors that can create 1) an empty list, or 2) load vehicles
      from a CSV file, given the filename

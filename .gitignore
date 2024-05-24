@@ -26,6 +26,7 @@ hs_err_pid*
 build/
 out/
 classes/
+*.txt
 
 # ignore intellij/eclipse idea stuffs
 .idea/

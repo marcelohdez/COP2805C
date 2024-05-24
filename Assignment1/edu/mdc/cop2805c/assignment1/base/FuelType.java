@@ -59,7 +59,7 @@ public enum FuelType {
         }
 
         throw new IllegalArgumentException(
-                String.format("CO2 emission factor unsupported for %s and %s", this.name(), vehicleType.name()));
+                "CO2 emission factor unsupported for " + this.name() + " and " + vehicleType.name());
     }
 
     public double getNOxEmissionFactor(VehicleType vehicleType) {
@@ -85,6 +85,6 @@ public enum FuelType {
         }
 
         throw new IllegalArgumentException(
-                String.format("NOx emission factor unsupported for %s and %s", this.name(), vehicleType.name()));
+                "NOx emission factor unsupported for " + this.name() + " and %s" + vehicleType.name());
     }
 }

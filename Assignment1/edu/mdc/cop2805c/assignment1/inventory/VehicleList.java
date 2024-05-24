@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import edu.mdc.cop2805c.assignment1.base.Vehicle;
 
 /**
- * Thin wrapper around an ArrayList<Vehicle> with sorting and write-to-file
+ * Wrapper around an ArrayList<Vehicle> with filtering and write-to-file
  * methods
  */
 public class VehicleList {
@@ -25,8 +25,21 @@ public class VehicleList {
         list.add(vehicle);
     }
 
+    public void removeVehicle(int index) {
+        list.remove(index);
+    }
+
     public void removeVehicle(Vehicle vehicle) {
         list.remove(vehicle);
+    }
+
+    public Vehicle get(int index) {
+        return list.get(index);
+    }
+
+    /** Returns the size of this instance's internal list */
+    public int size() {
+        return list.size();
     }
 
     /**
