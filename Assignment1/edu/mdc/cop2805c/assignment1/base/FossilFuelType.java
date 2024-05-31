@@ -1,16 +1,16 @@
 package edu.mdc.cop2805c.assignment1.base;
 
-public enum FuelType {
+public enum FossilFuelType {
     GASOLINE(1),
     DIESEL(2);
 
     private final int ordinal;
 
-    FuelType(int ordinal) {
+    FossilFuelType(int ordinal) {
         this.ordinal = ordinal;
     }
 
-    public static FuelType valueOf(int ordinal) {
+    public static FossilFuelType valueOf(int ordinal) {
         switch (ordinal) {
             case 1:
                 return GASOLINE;

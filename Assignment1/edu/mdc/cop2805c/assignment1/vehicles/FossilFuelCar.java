@@ -7,7 +7,7 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
     int weightKg;
     double engineDisplacementL;
     TransmissionType transmissionType;
-    FuelType fuelType;
+    FossilFuelType fossilFuelType;
 
     public FossilFuelCar(
             String VIN,
@@ -17,7 +17,7 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
             int weightKg,
             double engineDisplacementL,
             TransmissionType transmissionType,
-            FuelType fuelType) {
+            FossilFuelType fossilFuelType) {
         this.vin = VIN;
         this.make = make;
         this.model = model;
@@ -26,7 +26,7 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
         this.weightKg = weightKg;
         this.engineDisplacementL = engineDisplacementL;
         this.transmissionType = transmissionType;
-        this.fuelType = fuelType;
+        this.fossilFuelType = fossilFuelType;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
                 getVehicleType(),
                 getVehicleSubType(),
                 vin, make, model, year, weightKg, engineDisplacementL,
-                fuelType.getOrdinal(),
+                fossilFuelType.getOrdinal(),
                 transmissionType.getOrdinal());
     }
 
@@ -61,11 +61,11 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
     /** Estimate CO2 emissions in grams/mile */
     @Override
     public double estimateCO2Emissions() {
-        return estimateFuelEfficiency() * fuelType.getCO2EmissionFactor(Vehicle.TYPE_CAR);
+        return estimateFuelEfficiency() * fossilFuelType.getCO2EmissionFactor(Vehicle.TYPE_CAR);
     }
 
     @Override
     public double estimateNOxEmissions() {
-        return estimateFuelEfficiency() * fuelType.getNOxEmissionFactor(Vehicle.TYPE_CAR);
+        return estimateFuelEfficiency() * fossilFuelType.getNOxEmissionFactor(Vehicle.TYPE_CAR);
     }
 }

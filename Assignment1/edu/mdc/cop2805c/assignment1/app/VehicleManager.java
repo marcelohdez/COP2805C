@@ -3,7 +3,7 @@ package edu.mdc.cop2805c.assignment1.app;
 import java.util.List;
 import java.util.Scanner;
 
-import edu.mdc.cop2805c.assignment1.base.FuelType;
+import edu.mdc.cop2805c.assignment1.base.FossilFuelType;
 import edu.mdc.cop2805c.assignment1.base.TransmissionType;
 import edu.mdc.cop2805c.assignment1.base.Vehicle;
 import edu.mdc.cop2805c.assignment1.interfaces.ElectricVehicle;
@@ -186,7 +186,7 @@ public class VehicleManager {
                         TransmissionType tt = TransmissionType.valueOf(scn.nextLine());
 
                         System.out.println("Fuel Type? (Gasoline, Diesel)");
-                        FuelType ft = FuelType.valueOf(scn.nextLine());
+                        FossilFuelType ft = FossilFuelType.valueOf(scn.nextLine());
 
                         return new FossilFuelCar(vin, make, model, year, weightKg, ed, tt, ft);
                 }
@@ -201,7 +201,7 @@ public class VehicleManager {
                     double ed = Double.parseDouble(scn.nextLine());
 
                     System.out.println("Fuel Type? (Gasoline, Diesel)");
-                    FuelType ft = FuelType.valueOf(scn.nextLine());
+                    FossilFuelType ft = FossilFuelType.valueOf(scn.nextLine());
 
                     return new FossilFuelTruck(vin, make, model, year, rating, ed,
                             ft);

@@ -5,7 +5,7 @@ import edu.mdc.cop2805c.assignment1.interfaces.FossilFuelVehicle;
 
 public class FossilFuelMotorcycle extends Vehicle implements FossilFuelVehicle {
     // No Diesel Motorcycles...
-    final FuelType FUEL_TYPE = FuelType.GASOLINE;
+    final FossilFuelType FOSSIL_FUEL_TYPE = FossilFuelType.GASOLINE;
 
     int weightKg;
     double engineDisplacementCC;
@@ -57,11 +57,11 @@ public class FossilFuelMotorcycle extends Vehicle implements FossilFuelVehicle {
     /// Estimate CO2 emissions in grams/mile
     @Override
     public double estimateCO2Emissions() {
-        return estimateFuelEfficiency() * FUEL_TYPE.getCO2EmissionFactor(getVehicleType());
+        return estimateFuelEfficiency() * FOSSIL_FUEL_TYPE.getCO2EmissionFactor(getVehicleType());
     }
 
     @Override
     public double estimateNOxEmissions() {
-        return estimateFuelEfficiency() * FUEL_TYPE.getNOxEmissionFactor(getVehicleType());
+        return estimateFuelEfficiency() * FOSSIL_FUEL_TYPE.getNOxEmissionFactor(getVehicleType());
     }
 }

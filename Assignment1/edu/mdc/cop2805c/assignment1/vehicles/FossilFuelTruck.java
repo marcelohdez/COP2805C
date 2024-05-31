@@ -6,7 +6,7 @@ import edu.mdc.cop2805c.assignment1.interfaces.FossilFuelVehicle;
 public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
     int grossVehicleWeightRatingTon;
     double engineDisplacementL;
-    FuelType fuelType;
+    FossilFuelType fossilFuelType;
 
     public FossilFuelTruck(
             String VIN,
@@ -15,7 +15,7 @@ public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
             int year,
             int weightRatingTon,
             double engineDisplacementL,
-            FuelType fuelType) {
+            FossilFuelType fossilFuelType) {
         this.vin = VIN;
         this.make = make;
         this.model = model;
@@ -23,7 +23,7 @@ public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
 
         this.grossVehicleWeightRatingTon = weightRatingTon;
         this.engineDisplacementL = engineDisplacementL;
-        this.fuelType = fuelType;
+        this.fossilFuelType = fossilFuelType;
     }
 
     @Override
@@ -43,23 +43,23 @@ public class FossilFuelTruck extends Vehicle implements FossilFuelVehicle {
                 getVehicleType(),
                 getVehicleSubType(),
                 vin, make, model, year, grossVehicleWeightRatingTon, engineDisplacementL,
-                fuelType.getOrdinal());
+                fossilFuelType.getOrdinal());
     }
 
     /// Estimate fuel efficiency in MPG
     @Override
     public double estimateFuelEfficiency() {
-        return 1000 * (engineDisplacementL * fuelType.getTruckEfficiencyConstant()) / grossVehicleWeightRatingTon;
+        return 1000 * (engineDisplacementL * fossilFuelType.getTruckEfficiencyConstant()) / grossVehicleWeightRatingTon;
     }
 
     /// Estimate CO2 emissions in grams/mile
     @Override
     public double estimateCO2Emissions() {
-        return estimateFuelEfficiency() * fuelType.getCO2EmissionFactor(getVehicleType());
+        return estimateFuelEfficiency() * fossilFuelType.getCO2EmissionFactor(getVehicleType());
     }
 
     @Override
     public double estimateNOxEmissions() {
-        return estimateFuelEfficiency() * fuelType.getNOxEmissionFactor(getVehicleType());
+        return estimateFuelEfficiency() * fossilFuelType.getNOxEmissionFactor(getVehicleType());
     }
 }

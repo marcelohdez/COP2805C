@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-import edu.mdc.cop2805c.assignment1.base.FuelType;
+import edu.mdc.cop2805c.assignment1.base.FossilFuelType;
 import edu.mdc.cop2805c.assignment1.base.TransmissionType;
 import edu.mdc.cop2805c.assignment1.base.Vehicle;
 import edu.mdc.cop2805c.assignment1.vehicles.ElectricCar;
@@ -60,7 +60,7 @@ public class VehicleFileManager {
                             case Vehicle.SUBTYPE_FOSSIL_FUEL:
                                 v = Optional.of(new FossilFuelCar(vin, make, model, year, Integer.valueOf(values[6]),
                                         Double.valueOf(values[7]), TransmissionType.valueOf(Integer.valueOf(values[8])),
-                                        FuelType.valueOf(Integer.valueOf(values[9]))));
+                                        FossilFuelType.valueOf(Integer.valueOf(values[9]))));
                                 break;
 
                         }
@@ -70,7 +70,7 @@ public class VehicleFileManager {
                         if (!vstype.equals(Vehicle.SUBTYPE_FOSSIL_FUEL))
                             break;
                         v = Optional.of(new FossilFuelTruck(vin, make, model, year, Integer.valueOf(values[6]),
-                                Double.valueOf(values[7]), FuelType.valueOf(Integer.valueOf(values[8]))));
+                                Double.valueOf(values[7]), FossilFuelType.valueOf(Integer.valueOf(values[8]))));
                         break;
 
                     case Vehicle.TYPE_MOTORCYCLE:
