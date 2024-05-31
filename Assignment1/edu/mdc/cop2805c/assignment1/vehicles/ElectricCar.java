@@ -27,12 +27,12 @@ public class ElectricCar extends Vehicle implements ElectricVehicle {
 
     @Override
     public String getVehicleType() {
-        return VehicleType.Car.toString();
+        return TYPE_CAR;
     }
 
     @Override
     public String getVehicleSubType() {
-        return VehicleSubType.Electric.toString();
+        return SUBTYPE_ELECTRIC;
     }
 
     @Override

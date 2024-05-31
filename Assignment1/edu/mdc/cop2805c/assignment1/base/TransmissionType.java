@@ -1,8 +1,8 @@
 package edu.mdc.cop2805c.assignment1.base;
 
 public enum TransmissionType {
-    Automatic(1),
-    Manual(2);
+    AUTOMATIC(1),
+    MANUAL(2);
 
     private final int ordinal;
 
@@ -13,9 +13,9 @@ public enum TransmissionType {
     public static TransmissionType valueOf(int ordinal) {
         switch (ordinal) {
             case 1:
-                return Automatic;
+                return AUTOMATIC;
             case 2:
-                return Manual;
+                return MANUAL;
         }
 
         throw new IllegalArgumentException("Unknown ordinal");
@@ -27,9 +27,9 @@ public enum TransmissionType {
 
     public double getMultiplier() {
         switch (this) {
-            case Automatic:
+            case AUTOMATIC:
                 return 1;
-            case Manual:
+            case MANUAL:
                 return 0.8;
         }
 

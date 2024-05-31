@@ -6,8 +6,6 @@ import java.util.Scanner;
 import edu.mdc.cop2805c.assignment1.base.FuelType;
 import edu.mdc.cop2805c.assignment1.base.TransmissionType;
 import edu.mdc.cop2805c.assignment1.base.Vehicle;
-import edu.mdc.cop2805c.assignment1.base.VehicleSubType;
-import edu.mdc.cop2805c.assignment1.base.VehicleType;
 import edu.mdc.cop2805c.assignment1.interfaces.ElectricVehicle;
 import edu.mdc.cop2805c.assignment1.interfaces.FossilFuelVehicle;
 import edu.mdc.cop2805c.assignment1.inventory.VehicleFileManager;
@@ -153,11 +151,10 @@ public class VehicleManager {
     /** Will build a vehicle from newline-separated input */
     private static Vehicle createVehicle(Scanner scn) {
         System.out.println("What type? (Car, Truck, Motorcycle)");
-        VehicleType vtype = VehicleType.valueOf(scn.nextLine());
+        String vtype = scn.nextLine();
 
-        String subtypeChoices = vtype == VehicleType.Car ? "(Electric, Fossil Fuel)" : "(Fossil Fuel)";
-        System.out.println("What subtype? " + subtypeChoices);
-        VehicleSubType vstype = VehicleSubType.smartValueOf(scn.nextLine());
+        System.out.println("What subtype? (Electric, Fossil Fuel)");
+        String vstype = scn.nextLine();
 
         System.out.println("Vin?");
         String vin = scn.nextLine();
@@ -172,13 +169,13 @@ public class VehicleManager {
         int year = Integer.parseInt(scn.nextLine());
 
         switch (vtype) {
-            case Car:
+            case Vehicle.TYPE_CAR:
                 switch (vstype) {
-                    case Electric:
+                    case Vehicle.SUBTYPE_ELECTRIC:
                         System.out.println("kWh used per mile?");
                         return new ElectricCar(vin, make, model, year, Double.parseDouble(scn.nextLine()));
 
-                    case Fossil_Fuel:
+                    case Vehicle.SUBTYPE_FOSSIL_FUEL:
                         System.out.println("Weight (in Kg)");
                         int weightKg = Integer.parseInt(scn.nextLine());
 
@@ -195,8 +192,8 @@ public class VehicleManager {
                 }
                 break;
 
-            case Truck:
-                if (vstype == VehicleSubType.Fossil_Fuel) {
+            case Vehicle.TYPE_TRUCK:
+                if (vstype.equals(Vehicle.SUBTYPE_FOSSIL_FUEL)) {
                     System.out.println("Weight Rating (in Tons)");
                     int rating = Integer.parseInt(scn.nextLine());
 
@@ -211,8 +208,8 @@ public class VehicleManager {
                 }
                 break;
 
-            case Motorcycle:
-                if (vstype == VehicleSubType.Fossil_Fuel) {
+            case Vehicle.TYPE_MOTORCYCLE:
+                if (vstype.equals(Vehicle.SUBTYPE_FOSSIL_FUEL)) {
                     System.out.println("Weight (in Kg)");
                     int weight = Integer.parseInt(scn.nextLine());
 

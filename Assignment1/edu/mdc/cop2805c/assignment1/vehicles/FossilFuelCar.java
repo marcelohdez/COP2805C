@@ -31,12 +31,12 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
 
     @Override
     public String getVehicleType() {
-        return VehicleType.Car.toString();
+        return "Car";
     }
 
     @Override
     public String getVehicleSubType() {
-        return VehicleSubType.Fossil_Fuel.toString();
+        return "Fossil Fuel";
     }
 
     @Override
@@ -61,11 +61,11 @@ public class FossilFuelCar extends Vehicle implements FossilFuelVehicle {
     /** Estimate CO2 emissions in grams/mile */
     @Override
     public double estimateCO2Emissions() {
-        return estimateFuelEfficiency() * fuelType.getCO2EmissionFactor(VehicleType.Car);
+        return estimateFuelEfficiency() * fuelType.getCO2EmissionFactor(Vehicle.TYPE_CAR);
     }
 
     @Override
     public double estimateNOxEmissions() {
-        return estimateFuelEfficiency() * fuelType.getNOxEmissionFactor(VehicleType.Car);
+        return estimateFuelEfficiency() * fuelType.getNOxEmissionFactor(Vehicle.TYPE_CAR);
     }
 }

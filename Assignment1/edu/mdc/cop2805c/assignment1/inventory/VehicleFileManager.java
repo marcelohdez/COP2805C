@@ -14,8 +14,6 @@ import java.util.Scanner;
 import edu.mdc.cop2805c.assignment1.base.FuelType;
 import edu.mdc.cop2805c.assignment1.base.TransmissionType;
 import edu.mdc.cop2805c.assignment1.base.Vehicle;
-import edu.mdc.cop2805c.assignment1.base.VehicleSubType;
-import edu.mdc.cop2805c.assignment1.base.VehicleType;
 import edu.mdc.cop2805c.assignment1.vehicles.ElectricCar;
 import edu.mdc.cop2805c.assignment1.vehicles.FossilFuelCar;
 import edu.mdc.cop2805c.assignment1.vehicles.FossilFuelMotorcycle;
@@ -38,10 +36,14 @@ public class VehicleFileManager {
 
         try (Scanner scn = new Scanner(new File(filename))) {
             while (scn.hasNextLine()) {
-                String[] values = scn.nextLine().split(",");
+                String line = scn.nextLine();
+                if (line.isEmpty())
+                    break;
 
-                VehicleType vtype = VehicleType.valueOf(values[0]);
-                VehicleSubType vstype = VehicleSubType.smartValueOf(values[1]);
+                String[] values = line.split(",");
+
+                String vtype = values[0];
+                String vstype = values[1];
                 String vin = values[2];
                 String make = values[3];
                 String model = values[4];
@@ -49,13 +51,13 @@ public class VehicleFileManager {
 
                 Optional<Vehicle> v = Optional.ofNullable(null);
                 switch (vtype) {
-                    case Car:
+                    case Vehicle.TYPE_CAR:
                         switch (vstype) {
-                            case Electric:
+                            case Vehicle.SUBTYPE_ELECTRIC:
                                 v = Optional.of(new ElectricCar(vin, make, model, year, Double.valueOf(values[6])));
                                 break;
 
-                            case Fossil_Fuel:
+                            case Vehicle.SUBTYPE_FOSSIL_FUEL:
                                 v = Optional.of(new FossilFuelCar(vin, make, model, year, Integer.valueOf(values[6]),
                                         Double.valueOf(values[7]), TransmissionType.valueOf(Integer.valueOf(values[8])),
                                         FuelType.valueOf(Integer.valueOf(values[9]))));
@@ -64,15 +66,15 @@ public class VehicleFileManager {
                         }
                         break;
 
-                    case Truck:
-                        if (vstype != VehicleSubType.Fossil_Fuel)
+                    case Vehicle.TYPE_TRUCK:
+                        if (!vstype.equals(Vehicle.SUBTYPE_FOSSIL_FUEL))
                             break;
                         v = Optional.of(new FossilFuelTruck(vin, make, model, year, Integer.valueOf(values[6]),
                                 Double.valueOf(values[7]), FuelType.valueOf(Integer.valueOf(values[8]))));
                         break;
 
-                    case Motorcycle:
-                        if (vstype != VehicleSubType.Fossil_Fuel)
+                    case Vehicle.TYPE_MOTORCYCLE:
+                        if (!vstype.equals(Vehicle.SUBTYPE_FOSSIL_FUEL))
                             break;
                         v = Optional.of(new FossilFuelMotorcycle(vin, make, model, year, Integer.valueOf(values[6]),
                                 Double.valueOf(values[7]), Double.valueOf(values[8])));
